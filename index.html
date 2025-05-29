@@ -298,6 +298,40 @@
     }
   </style>
 </head>
+<script>
+  document.addEventListener("mousemove", function(event) {
+    const glow = document.createElement("div");
+    glow.classList.add("mouse-glow");
+    document.body.appendChild(glow);
+
+    glow.style.left = `${event.pageX}px`;
+    glow.style.top = `${event.pageY}px`;
+
+    setTimeout(() => {
+      glow.remove();
+    }, 500);
+  });
+</script>
+
+<style>
+.mouse-glow {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.6;
+  box-shadow: 0px 0px 8px var(--accent-color);
+  pointer-events: none;
+  animation: fadeOut 0.5s ease-out;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
+}
+</style>
+
 <body>
   <!-- Navigation Bar -->
   <header>
@@ -351,7 +385,12 @@
     </p>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact Section --><section class="fade-in">
+  <h2>Why Choose Us?</h2>
+  <p>Your reliable, on-the-go tech savior.</p>
+</section>
+
+   
   <!-- Contact Section -->
 <section id="contact" class="section">
   <h2>Contact Us</h2>
@@ -537,5 +576,63 @@
       animateCanvas();
     })();
   </script>
+  <canvas id="particleCanvas"></canvas>
+<script>
+  const canvas = document.getElementById("particleCanvas");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  const particles = [];
+  for (let i = 0; i < 40; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 3 + 1,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      alpha: Math.random(),
+    });
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.alpha += 0.01;
+      if (p.alpha > 1) p.alpha = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 173, 181, ${p.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+</script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Thank you for contacting us! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+  <section class="fade-in">
+  <h2>Why Choose Us?</h2>
+  <p>Your reliable, on-the-go tech savior.</p>
+</section>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("loaded");
+  });
+</script>
+
 </body>
 </html>
