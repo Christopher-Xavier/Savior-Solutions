@@ -6,7 +6,11 @@
   <title>Savior Mobile Tech Solutions</title>
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400i,700">
-  <style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-1q8d3e5" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/lib.min.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/lib.min.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-ui/4.12.4/es/FormGroup/index.min.js">
+ <style>
     /* Global Styles */
     body {
       margin: 0;
@@ -382,15 +386,22 @@
     <h2>About Us</h2>
     <p>
       Savior Mobile Tech Solutions is dedicated to providing on-the-go emergency tech repair and digital innovation. Whether it’s hardware, software, or web solutions, our mission is to rescue your tech troubles and keep you connected in today’s digital world.
+      Savior Mobile Tech Solutions: Keeping You Connected, No Matter What At Savior Mobile Tech Solutions, we specialize in fast, reliable mobile tech repair and digital innovation, ensuring your devices stay functional when you need them most. Whether it’s a sudden hardware failure, software glitch, or a seamless web experience, we restore, enhance, and safeguard your technology—keeping you connected and in control, anytime, anywhere.
     </p>
   </section>
 
-  <!-- Contact Section --><section class="fade-in">
-  <h2>Why Choose Us?</h2>
-  <p>Your reliable, on-the-go tech savior.</p>
+  
+<section id="guarantee">
+    <h2>Our Guarantee</h2>
+    <p>At <strong>Savior Mobile Tech Solutions</strong>, we stand by the quality, speed, and reliability of our services. We guarantee:</p>
+    <ul>
+        <li><strong>Expert Repairs</strong> – Every repair is performed with precision and care to restore your device’s functionality.</li>
+        <li><strong>Satisfaction Assurance</strong> – If you're not completely satisfied, we’ll make it right.</li>
+        <li><strong>Speed & Convenience</strong> – On-the-go service means minimal downtime so you stay connected.</li>
+        <li><strong>Secure & Trustworthy</strong> – Your tech is in safe hands. We prioritize data security and device integrity.</li>
+    </ul>
 </section>
 
-   
   <!-- Contact Section -->
 <section id="contact" class="section">
   <h2>Contact Us</h2>
@@ -398,6 +409,9 @@
     Call us at <strong>(662) 213-0531</strong> or email <strong>support@saviormobiletech.com</strong>,
     or fill out the form below. We’re available 24/7 for any tech emergencies.
   </p>
+  <fieldset>
+    <legend>Contact Form</legend>
+    <p>We would love to hear from you! Please fill out the form below and we will get back to you as soon as possible.</p>
   <form id="contactForm" method="post" action="#">
     <div class="form-group">
       <label for="name">Name</label>
@@ -413,6 +427,7 @@
     </div>
     <button type="submit">Submit</button>
   </form>
+  </fieldset>
 </section>
 
   <!-- Improved Footer -->
@@ -633,6 +648,47 @@
     document.body.classList.add("loaded");
   });
 </script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .loaded .fade-in {
+      opacity: 1;
+    }
+  </style>
+  <script>
+  document.addEventListener("mousemove", function(event) {
+    const glow = document.createElement("div");
+    glow.classList.add("mouse-glow");
+    document.body.appendChild(glow);
 
+    glow.style.left = `${event.pageX}px`;
+    glow.style.top = `${event.pageY}px`;
+
+    setTimeout(() => {
+      glow.remove();
+    }, 500);
+  });
+</script>
+  <style>
+    .mouse-glow {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: #4144fa; /* Neon Green */
+      border-radius: 50%;
+      opacity: 0.6;
+      box-shadow: 0px 0px 8px #39FF14;
+      pointer-events: none;
+      animation: fadeOut 0.5s ease-out;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(2); }
+    }
+  </style>
+  
 </body>
 </html>
