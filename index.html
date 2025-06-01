@@ -465,6 +465,14 @@
       &copy; 2025 Savior Mobile Tech Solutions. All rights reserved.
     </div>
   </footer>
+<div id="chatbot-icon" onclick="toggleChat()">
+    💬 TechBot
+</div>
+<div id="chat-window" class="hidden">
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Ask me about tech issues...">
+    <button onclick="sendMessage()">Send</button>
+</div>
 
   <!-- Optional: Advanced Canvas Animation Script -->
   <script>
@@ -676,7 +684,7 @@
       position: absolute;
       width: 15px;
       height: 15px;
-      background-color: #4144fa; /* Neon Green */
+      background-color: #0b0ff7; /* Neon Green */
       border-radius: 50%;
       opacity: 0.6;
       box-shadow: 0px 0px 8px #39FF14;
@@ -688,7 +696,6 @@
       from { opacity: 1; transform: scale(1); }
       to { opacity: 0; transform: scale(2); }
     }
-  </style>
-  
+  </style>"
 </body>
 </html>
