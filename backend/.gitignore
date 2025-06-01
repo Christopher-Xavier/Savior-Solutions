@@ -1,0 +1,13 @@
+# Ignore API keys & secrets
+.env
+config.json
+
+# Ignore Python virtual environments
+.venv/
+__pycache__/
+
+# Ignore log files
+*.log
+
+# Ignore local system files
+.DS_Store
